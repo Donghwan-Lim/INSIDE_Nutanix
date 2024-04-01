@@ -33,13 +33,12 @@ resource "nutanix_virtual_machine" "vm01" {
   memory_size_mib      = 8
 
   disk_list {
-    disk_size_bytes = 68157440
-    disk_size_mib   = 65
+    disk_size_bytes = 85899345920
+    disk_size_mib   = 81920
 
     storage_config {
       storage_container_reference {
-        kind = "storage_container"
-        name = "da247881-4c67-43d9-b63a-82b717d0d66b"
+        kind = "Inside-Container"
       }
     }
   }
@@ -52,5 +51,6 @@ resource "nutanix_subnet" "next-iac-managed" {
   # General Information
   name        = "terraform-provsioning"
   vlan_id     = 0
+  subnet_type = "VLAN"
   vswitch_name = "vs0"
 }
