@@ -25,7 +25,6 @@ provider "nutanix" {
 
 #data "nutanix_clusters" "clusters" {}
 data "nutanix_cluster" "cluster" {
-    cluster_id = "28579"
     name = "Main-Cluster"
 }
 
