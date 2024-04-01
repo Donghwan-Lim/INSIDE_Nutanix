@@ -30,7 +30,7 @@ data "nutanix_cluster" "cluster" {
 
 resource "nutanix_virtual_machine" "vm01" {
   name                 = "Donghwan-Terraform-Provisioning-VM"
-  cluster_uuid         = data.nutanix_cluster.cluster.cluster_uuid #data.nutanix_clusters.clusters.entities.0.metadata.uuid
+  cluster_uuid         = data.nutanix_cluster.cluster.cluster_id #data.nutanix_clusters.clusters.entities.0.metadata.uuid
   num_vcpus_per_socket = 1
   num_sockets          = 2
   memory_size_mib      = 8
@@ -49,7 +49,7 @@ resource "nutanix_virtual_machine" "vm01" {
 
 resource "nutanix_subnet" "next-iac-managed" {
   # What cluster will this VLAN live on?
-  cluster_uuid = data.nutanix_cluster.cluster.cluster_uuid #"${data.nutanix_clusters.clusters.entities.0.metadata.uuid}"
+  cluster_uuid = data.nutanix_cluster.cluster.cluster_id #"${data.nutanix_clusters.clusters.entities.0.metadata.uuid}"
 
   # General Information
   name        = "terraform-provsioning"
